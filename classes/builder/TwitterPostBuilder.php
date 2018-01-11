@@ -38,7 +38,7 @@ class TwitterPostBuilder {
             $tweet->setReleased($this->decodeDatetime($t['created_at']));
             $tweet->setChannel("Twitter");
             $tweet->setOriginalId($t['id_str']);
-            $tweet->setLink($this->buildTwitterLink("", $t['id_str']));
+            $tweet->setLink($this->buildTwitterLink($creator->getTwitterId(), $t['id_str']));
             $tweet->setCreatorId($creator->getId());
 
             var_dump($creator);
