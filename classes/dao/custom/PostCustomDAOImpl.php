@@ -10,12 +10,16 @@ abstract class PostCustomDAOImpl extends PostBuilder implements PostCustomDAO {
             ":oid" => $originalId
         );
 
-        $statement = $this->pdo->prepare("SELECT count(*) AS c FROM Creator WHERE creatorId = :cid AND originalId = :oid;");
+        $statement = $this->pdo->prepare("SELECT count(*) AS c FROM Post WHERE creatorId = :cid AND originalId = :oid;");
         $result = $statement->execute($data);
         if($result AND $row = $statement->fetch()) {
             return $row['c'] > 0;
         } else {
             return false;
         }
+    }
+
+    function readLatestPostsOf($creatorId, $count = 10) {
+        $data = array();
     }
 }

@@ -39,7 +39,7 @@ class TwitterRESTClient {
         $twitter = $dao->readByName("Twitter");
         if($twitter) {
             $client = new RESTClient();
-            $client->setUrl("https://api.twitter.com/1.1/statuses/user_timeline.builder");
+            $client->setUrl("https://api.twitter.com/1.1/statuses/user_timeline.json");
             $client->addQueryParam("screen_name", $username);
             $client->addQueryParam("count", $count);
             $client->addHeaderParam("Authorization", "Bearer " . $twitter->getToken());

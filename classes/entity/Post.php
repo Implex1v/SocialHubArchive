@@ -33,9 +33,9 @@ class Post {
 	 */
 	protected $originalId;
 	/**
-	 * @var integer $creator The creator
+	 * @var string $creatorId The creatorId
 	 */
-	protected $creator;
+	protected $creatorId;
 	
 	/**
 	 * Returns the attribute $id
@@ -94,12 +94,13 @@ class Post {
 	}
 	
 	/**
-	 * Returns the foreign key value of the association to the class Creator
-	 * @return integer|null The value of the foreign key
+	 * Returns the attribute $creatorId
+	 * @return string|null The attribute's value
 	 */
-	public function getCreator() {
-		return $this->creator;
+	public function getCreatorId() {
+		return $this->creatorId;
 	}
+	
 	/**
 	 * Sets the attribute $id to the passed value
 	 * @param integer $id The new value
@@ -157,10 +158,11 @@ class Post {
 	}
 	
 	/**
-	 * Sets the foreign key value of the association to the class Creator
-	 * @param integer|null $creator The new value
+	 * Sets the attribute $creatorId to the passed value
+	 * @param string $creatorId The new value
 	 */
-	public function setCreator($creator) {
-		$this->creator = $creator;
+	public function setCreatorId($creatorId) {
+		$this->creatorId = $creatorId;
 	}
+	
 }

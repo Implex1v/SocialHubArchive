@@ -46,6 +46,10 @@ class PostBuilder {
 			$object->setOriginalId($row['originalId']);
 		}
 		
+		if(isset($row['creatorId'])) {
+			$object->setCreatorId($row['creatorId']);
+		}
+		
 		return $object;
 	}
 }

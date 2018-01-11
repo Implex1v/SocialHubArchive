@@ -15,6 +15,6 @@ if($_GET['action']) {
 
         $builder = new TwitterPostBuilder();
         $cc = $builder->buildTwitterPosts($creator, $result);
-        var_dump($cc);
     }
 }
+

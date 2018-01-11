@@ -1,7 +1,6 @@
 <?php
 
 class TwitterPostBuilder {
-
     /**
      * Returns a list of Post objects which contains all data to display the tweet. The tweets are persisted
      * @param Creator $creator The creator of the tweets
@@ -12,8 +11,6 @@ class TwitterPostBuilder {
         if(!$response) {
             throw new RuntimeException("response is null");
         }
-
-        echo $response;
 
         $tweets = json_decode($response, true);
         if(is_array($tweets) AND ! array_key_exists("error", $tweets)) {
@@ -42,9 +39,13 @@ class TwitterPostBuilder {
             $tweet->setChannel("Twitter");
             $tweet->setOriginalId($t['id_str']);
             $tweet->setLink($this->buildTwitterLink("", $t['id_str']));
-            $tweet->setCreator($creator->getId());
+            $tweet->setCreatorId($creator->getId());
+
+            var_dump($creator);
 
             $tweet = $dao->create($tweet);
+
+            var_dump($tweet);
 
             return $tweet;
         } else {
@@ -69,6 +70,6 @@ class TwitterPostBuilder {
      * @return string The link to the tweet
      */
     private function buildTwitterLink($username, $id) {
-        return "https://twitter.com/"+$username+"/status/"+$id;
+        return "https://twitter.com/".$username."/status/".$id;
     }
 }
