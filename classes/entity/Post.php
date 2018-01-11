@@ -28,6 +28,14 @@ class Post {
 	 * @var string $comment The comment
 	 */
 	protected $comment;
+	/**
+	 * @var string $originalId The originalId
+	 */
+	protected $originalId;
+	/**
+	 * @var integer $creator The creator
+	 */
+	protected $creator;
 	
 	/**
 	 * Returns the attribute $id
@@ -78,6 +86,21 @@ class Post {
 	}
 	
 	/**
+	 * Returns the attribute $originalId
+	 * @return string|null The attribute's value
+	 */
+	public function getOriginalId() {
+		return $this->originalId;
+	}
+	
+	/**
+	 * Returns the foreign key value of the association to the class Creator
+	 * @return integer|null The value of the foreign key
+	 */
+	public function getCreator() {
+		return $this->creator;
+	}
+	/**
 	 * Sets the attribute $id to the passed value
 	 * @param integer $id The new value
 	 */
@@ -125,4 +148,19 @@ class Post {
 		$this->comment = $comment;
 	}
 	
+	/**
+	 * Sets the attribute $originalId to the passed value
+	 * @param string $originalId The new value
+	 */
+	public function setOriginalId($originalId) {
+		$this->originalId = $originalId;
+	}
+	
+	/**
+	 * Sets the foreign key value of the association to the class Creator
+	 * @param integer|null $creator The new value
+	 */
+	public function setCreator($creator) {
+		$this->creator = $creator;
+	}
 }

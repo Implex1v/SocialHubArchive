@@ -42,6 +42,10 @@ class PostBuilder {
 			$object->setComment($row['comment']);
 		}
 		
+		if(isset($row['originalId'])) {
+			$object->setOriginalId($row['originalId']);
+		}
+		
 		return $object;
 	}
 }

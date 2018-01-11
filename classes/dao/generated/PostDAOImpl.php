@@ -24,8 +24,9 @@ class PostDAOImpl extends PostCustomDAOImpl implements PostDAO {
 			"channel" => $post->getChannel(),
 			"content" => $post->getContent(),
 			"comment" => $post->getComment(),
+			"originalId" => $post->getOriginalId(),
 		);
-		$statement = $this->pdo->prepare("INSERT INTO Post (link,released,channel,content,comment) VALUES (:link,:released,:channel,:content,:comment);");
+		$statement = $this->pdo->prepare("INSERT INTO Post (link,released,channel,content,comment,originalId) VALUES (:link,:released,:channel,:content,:comment,:originalId);");
 		$statement->execute($data);
 		
 		if($statement AND $statement->rowCount() > 0) {
@@ -74,9 +75,9 @@ class PostDAOImpl extends PostCustomDAOImpl implements PostDAO {
 	 */
 	function update(Post $object) {
 		if($object->getId()) {
-			$statement = $this->pdo->prepare("UPDATE Post SET link = :link, released = :released, channel = :channel, content = :content, comment = :comment WHERE id = :id;");
+			$statement = $this->pdo->prepare("UPDATE Post SET link = :link, released = :released, channel = :channel, content = :content, comment = :comment, originalId = :originalId WHERE id = :id;");
 			$data = array(
-				"id" => $object->getId(), "link" => $object->getLink(), "released" => $object->getReleased(), "channel" => $object->getChannel(), "content" => $object->getContent(), "comment" => $object->getComment(),
+				"id" => $object->getId(), "link" => $object->getLink(), "released" => $object->getReleased(), "channel" => $object->getChannel(), "content" => $object->getContent(), "comment" => $object->getComment(), "originalId" => $object->getOriginalId(),
 			);
 			$statement->execute($data);
 			
