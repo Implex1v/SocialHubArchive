@@ -59,8 +59,6 @@ class RESTClient {
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $this->body);
             }
 
-
-
             $result = curl_exec($curl);
             $info = curl_getinfo($curl);
             file_put_contents(__DIR__ . "log.log", print_r($info, true), true);

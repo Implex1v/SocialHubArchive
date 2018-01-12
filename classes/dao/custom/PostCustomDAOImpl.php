@@ -7,13 +7,14 @@ abstract class PostCustomDAOImpl extends PostBuilder implements PostCustomDAO {
     /**
      * {@inheritdoc}
      */
-    function postExits($creatorId, $originalId) {
+    function postExits($creatorId, $originalId, $channel) {
         $data = array(
             ":cid" => $creatorId,
-            ":oid" => $originalId
+            ":oid" => $originalId,
+            ":channel" => $channel
         );
 
-        $statement = $this->pdo->prepare("SELECT count(*) AS c FROM Post WHERE creatorId = :cid AND originalId = :oid;");
+        $statement = $this->pdo->prepare("SELECT count(*) AS c FROM Post WHERE creatorId = :cid AND originalId = :oid AND channel = :channel;");
         $result = $statement->execute($data);
         if($result AND $row = $statement->fetch()) {
             return $row['c'] > 0;

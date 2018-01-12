@@ -15,6 +15,14 @@ foreach($p as $post) {
         $engine->put("content", $post->getContent());
 
         $posts .= $engine->finalize();
+    } elseif($post->getChannel() == "Youtube") {
+        $engine = new LayoutEngine(__DIR__ . "/templates/card_youtube.tpl");
+        $engine->put("link", $post->getLink());
+        $engine->put("date", $post->getReleased());
+        $engine->put("title", $post->getContent());
+        $engine->put("content", $post->getComment());
+
+        $posts .= $engine->finalize();
     }
 }
 

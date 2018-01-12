@@ -28,9 +28,10 @@
                 </div>
             </div>
             <div class="row" id="feed">
-                <div class="col l8 offset-l2">
-                    {posts}
-                </div>
+                <!--<div class="col l8 offset-l2">
+
+                </div>-->
+                {posts}
             </div>
         </div>
 
