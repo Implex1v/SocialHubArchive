@@ -1,69 +1,33 @@
 <?php
 
-class RESTClient {
-    private $url;
-    private $header;
-    private $body;
-    private $method;
+require __DIR__ . "/classes/util/autoload.php";
 
-    /**
-     * RESTClient constructor.
-     */
-    public function __construct() {
-        $this->body = array();
-        $this->header = array();
-    }
+if($_GET['action']) {
+    if($_GET['action'] = "fetch") {
+        /* TODO: move to controller
+        require __DIR__ . "/classes/rest/TwitterRESTClient.php";
+        require __DIR__ . "/classes/builder/TwitterPostBuilder.php";
 
-    public function addHeaderParam($key, $value) {
-        $this->header[$key] = $value;
-    }
+        $cDao = new CreatorDAOImpl();
+        $creator = $cDao->readByName("Gronkh");
 
-    public function addBodyParam($key, $value) {
-        $this->body[$key] = $value;
-    }
+        $client = new TwitterRESTClient();
+        $result = $client->readFeed($creator->getTwitterId(), 10);
 
-    /**
-     * @param mixed $url
-     */
-    public function setUrl($url) {
-        $this->url = $url;
-    }
+        $builder = new TwitterPostBuilder();
+        $cc = $builder->buildTwitterPosts($creator, $result);
+        */
+        require __DIR__ . "/classes/rest/YouTubeRESTClient.php";
+        require __DIR__ . "/classes/builder/YoutubePostBuilder.php";
 
-    public function setPost() {
-        $this->method = CURLOPT_POST;
-    }
+        $cDao = new CreatorDAOImpl();
+        $creator = $cDao->readByName("Gronkh");
 
-    public function setPut() {
-        $this->method = CURLOPT_PUT;
-    }
+        $client = new YouTubeRESTClient();
+        $result = $client->getLatestUploads("UUYJ61XIK64sp6ZFFS8sctxw");
 
-    function run() {
-        if($this->url) {
-            $curl = curl_init($this->url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $this->buildHeader());
-
-            if($this->method == CURLOPT_POST) {
-                curl_setopt($curl, $this->method, true);
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $this->body);
-            }
-
-            $result = curl_exec($curl);
-            curl_close($curl);
-
-            return $result;
-        } else {
-            return null;
-        }
-    }
-
-    private function buildHeader() {
-        $header_[] = array();
-
-        foreach ($this->header as $key => $value) {
-            $header_[] = $key . ": " . $value;
-        }
-
-        return $header_;
+        $builder = new YoutubePostBuilder();
+        $posts = $builder->buildYoutubePosts($creator, $result);
     }
 }
+

@@ -12,11 +12,13 @@ class SQLTableHandler {
 		CREATE TABLE Post(
 		id INT  AUTO_INCREMENT NOT NULL
 		,
-		link VARCHAR(64)  ,
+		link TEXT  ,
 		released DATETIME  ,
 		channel VARCHAR(64)  ,
 		content TEXT  ,
 		comment TEXT  ,
+		originalId VARCHAR(64)  ,
+		creatorId VARCHAR(64)  ,
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET utf8;
 		");
@@ -24,9 +26,23 @@ class SQLTableHandler {
 		CREATE TABLE Api(
 		id INT  AUTO_INCREMENT NOT NULL
 		,
-		token VARCHAR(64)  ,
+		token TEXT  ,
 		url VARCHAR(64)  ,
 		name VARCHAR(64) UNIQUE ,
+		optional VARCHAR(64)  ,
+		PRIMARY KEY (id)
+		) DEFAULT CHARSET utf8;
+		");
+		$this->pdo->query("DROP TABLE IF EXISTS Creator;
+		CREATE TABLE Creator(
+		id INT  AUTO_INCREMENT NOT NULL
+		,
+		name VARCHAR(64) UNIQUE ,
+		twitterId VARCHAR(64)  ,
+		youtubeId VARCHAR(64)  ,
+		youtubeUpload VARCHAR(64)  ,
+		instagramId VARCHAR(64)  ,
+		twitchId VARCHAR(64)  ,
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET utf8;
 		");
@@ -35,5 +51,6 @@ class SQLTableHandler {
 	function deleteTables() {
 		$this->pdo->query("DROP TABLE IF EXISTS Post;");
 		$this->pdo->query("DROP TABLE IF EXISTS Api;");
+		$this->pdo->query("DROP TABLE IF EXISTS Creator;");
 	}
 }

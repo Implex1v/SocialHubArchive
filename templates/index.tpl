@@ -3,8 +3,8 @@
     <head>
         <title>SocialHub: Gronkh</title>
 
-        <link rel="stylesheet" href="css/materialize.css">
-        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="/css/materialize.css">
+        <link rel="stylesheet" href="/css/custom.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <meta charset="UTF-8">
@@ -28,18 +28,10 @@
                 </div>
             </div>
             <div class="row" id="feed">
-                <div class="col l8 offset-l2">
-                    <div class="card amber instagram-card">
-                        <div class="card-content white-text">
-                            <span class="card-title">Instagram</span>
-                            <p>Bla Bla</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="www.google.de" class="white-text link">Zum Original Post</a>
-                            <span class="white-text right-align" style="float: right">13.07.1993 14:04</span>
-                        </div>
-                    </div>
-                </div>
+                <!--<div class="col l8 offset-l2">
+
+                </div>-->
+                {posts}
             </div>
         </div>
 
