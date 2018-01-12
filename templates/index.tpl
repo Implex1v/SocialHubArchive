@@ -35,7 +35,9 @@
             </div>
         </div>
 
+        <span style="display: none" id="lastPostTime">{lastPostTime}</span>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="js/materialize.min.js"></script>
+        <script src="js/materialize.min.js" type="application/javascript"></script>
+        <script src="js/custom.js" type="application/javascript"></script>
     </body>
 </html>

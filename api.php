@@ -16,7 +16,6 @@ if($_GET['action']) {
 
         $builder = new TwitterPostBuilder();
         $cc = $builder->buildTwitterPosts($creator, $result);
-        */
         require __DIR__ . "/classes/rest/YouTubeRESTClient.php";
         require __DIR__ . "/classes/builder/YoutubePostBuilder.php";
 
@@ -28,6 +27,17 @@ if($_GET['action']) {
 
         $builder = new YoutubePostBuilder();
         $posts = $builder->buildYoutubePosts($creator, $result);
+
+        */
+
+        require __DIR__ . "/classes/rest/InstagramWebsiteClient.php";
+        $cDao = new CreatorDAOImpl();
+        $creator = $cDao->readByName("Gronkh");
+
+        $client = new InstagramWebsiteClient();
+        $posts = $client->getLatestImages($creator);
+    } elseif($_GET['action'] == "getPost" AND $_GET['time']) {
+
     }
 }
 
