@@ -3,8 +3,8 @@
     <head>
         <title>SocialHub: Gronkh</title>
 
-        <link rel="stylesheet" href="css/materialize.css">
-        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="/css/materialize.css">
+        <link rel="stylesheet" href="/css/custom.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <meta charset="UTF-8">
@@ -28,9 +28,10 @@
                 </div>
             </div>
             <div class="row" id="feed">
-                <div class="col l8 offset-l2">
-                    {posts}
-                </div>
+                <!--<div class="col l8 offset-l2">
+
+                </div>-->
+                {posts}
             </div>
         </div>
 

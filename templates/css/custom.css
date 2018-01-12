@@ -1,3 +1,7 @@
-.twitch-card.link:hover {
+.twitch-card.card-action a:hover {
     color: #d1c4e9;
+}
+
+.card-action.row {
+    margin-bottom: 0px;
 }

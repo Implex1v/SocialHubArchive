@@ -21,8 +21,12 @@ class CreatorDAOImpl extends CreatorCustomDAOImpl implements CreatorDAO {
 		$data = array(
 			"name" => $creator->getName(),
 			"twitterId" => $creator->getTwitterId(),
+			"youtubeId" => $creator->getYoutubeId(),
+			"youtubeUpload" => $creator->getYoutubeUpload(),
+			"instagramId" => $creator->getInstagramId(),
+			"twitchId" => $creator->getTwitchId(),
 		);
-		$statement = $this->pdo->prepare("INSERT INTO Creator (name,twitterId) VALUES (:name,:twitterId);");
+		$statement = $this->pdo->prepare("INSERT INTO Creator (name,twitterId,youtubeId,youtubeUpload,instagramId,twitchId) VALUES (:name,:twitterId,:youtubeId,:youtubeUpload,:instagramId,:twitchId);");
 		$statement->execute($data);
 		
 		if($statement AND $statement->rowCount() > 0) {
@@ -71,9 +75,9 @@ class CreatorDAOImpl extends CreatorCustomDAOImpl implements CreatorDAO {
 	 */
 	function update(Creator $object) {
 		if($object->getId()) {
-			$statement = $this->pdo->prepare("UPDATE Creator SET name = :name, twitterId = :twitterId WHERE id = :id;");
+			$statement = $this->pdo->prepare("UPDATE Creator SET name = :name, twitterId = :twitterId, youtubeId = :youtubeId, youtubeUpload = :youtubeUpload, instagramId = :instagramId, twitchId = :twitchId WHERE id = :id;");
 			$data = array(
-				"id" => $object->getId(), "name" => $object->getName(), "twitterId" => $object->getTwitterId(),
+				"id" => $object->getId(), "name" => $object->getName(), "twitterId" => $object->getTwitterId(), "youtubeId" => $object->getYoutubeId(), "youtubeUpload" => $object->getYoutubeUpload(), "instagramId" => $object->getInstagramId(), "twitchId" => $object->getTwitchId(),
 			);
 			$statement->execute($data);
 			

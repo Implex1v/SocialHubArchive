@@ -34,6 +34,10 @@ class ApiBuilder {
 			$object->setName($row['name']);
 		}
 		
+		if(isset($row['optional'])) {
+			$object->setOptional($row['optional']);
+		}
+		
 		return $object;
 	}
 }

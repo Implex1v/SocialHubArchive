@@ -8,6 +8,10 @@ class TwitterPostBuilder {
      * @return array An array containing the post or an empty array if an error occurred
      */
     function buildTwitterPosts(Creator $creator, $response) {
+        if(!$creator) {
+            throw new RuntimeException("creator is null");
+        }
+
         if(!$response) {
             throw new RuntimeException("response is null");
         }
@@ -32,7 +36,7 @@ class TwitterPostBuilder {
     private function buildTwitterPost(Creator $creator, array $t) {
         $dao = new PostDAOImpl();
 
-        if(! $dao->postExits($creator->getId(), $t['id_str'])) {
+        if(! $dao->postExits($creator->getId(), $t['id_str'], "Twitter")) {
             $tweet = new Post();
             $tweet->setContent($t['text']);
             $tweet->setReleased($this->decodeDatetime($t['created_at']));
@@ -40,12 +44,7 @@ class TwitterPostBuilder {
             $tweet->setOriginalId($t['id_str']);
             $tweet->setLink($this->buildTwitterLink($creator->getTwitterId(), $t['id_str']));
             $tweet->setCreatorId($creator->getId());
-
-            var_dump($creator);
-
             $tweet = $dao->create($tweet);
-
-            var_dump($tweet);
 
             return $tweet;
         } else {
