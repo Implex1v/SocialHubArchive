@@ -23,6 +23,14 @@ foreach($p as $post) {
         $engine->put("content", $post->getComment());
 
         $posts .= $engine->finalize();
+    } elseif($post->getChannel() == "Instagram") {
+        $engine = new LayoutEngine(__DIR__ . "/templates/card_instagram.tpl");
+        $engine->put("link", $post->getLink());
+        $engine->put("date", $post->getReleased());
+        $engine->put("content", $post->getContent());
+        $engine->put("title", $post->getComment());
+
+        $posts .= $engine->finalize();
     }
 }
 

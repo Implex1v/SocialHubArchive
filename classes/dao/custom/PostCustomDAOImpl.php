@@ -32,7 +32,7 @@ abstract class PostCustomDAOImpl extends PostBuilder implements PostCustomDAO {
             ":lim" => $count
         );
 
-        $statement = $this->pdo->prepare("SELECT * FROM Post WHERE creatorId = 1 ORDER BY released DESC LIMIT 10");
+        $statement = $this->pdo->prepare("SELECT * FROM Post WHERE creatorId = 1 ORDER BY released DESC LIMIT 47");
         $result = $statement->execute($data);
         if($result) {
             $list = array();

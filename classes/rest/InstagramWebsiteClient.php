@@ -42,8 +42,8 @@ class InstagramWebsiteClient {
             $post->setOriginalId($entry['code']);
             $post->setCreatorId($creator->getId());
             $post->setChannel("Instagram");
-            $post->setContent($entry['thumbnail_src']);
-            $post->setComment(utf8_decode($entry['caption']));
+            $post->setContent($entry['display_src']);
+            $post->setComment($entry['caption']);
             $post->setLink($this->buildLink($entry['code']));
             $post = $dao->create($post);
 
