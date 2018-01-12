@@ -29,6 +29,7 @@ class SQLTableHandler {
 		token TEXT  ,
 		url VARCHAR(64)  ,
 		name VARCHAR(64) UNIQUE ,
+		optional VARCHAR(64)  ,
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET utf8;
 		");
@@ -38,6 +39,10 @@ class SQLTableHandler {
 		,
 		name VARCHAR(64) UNIQUE ,
 		twitterId VARCHAR(64)  ,
+		youtubeId VARCHAR(64)  ,
+		youtubeUpload VARCHAR(64)  ,
+		instagramId VARCHAR(64)  ,
+		twitchId VARCHAR(64)  ,
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET utf8;
 		");

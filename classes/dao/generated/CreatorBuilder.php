@@ -30,6 +30,22 @@ class CreatorBuilder {
 			$object->setTwitterId($row['twitterId']);
 		}
 		
+		if(isset($row['youtubeId'])) {
+			$object->setYoutubeId($row['youtubeId']);
+		}
+		
+		if(isset($row['youtubeUpload'])) {
+			$object->setYoutubeUpload($row['youtubeUpload']);
+		}
+		
+		if(isset($row['instagramId'])) {
+			$object->setInstagramId($row['instagramId']);
+		}
+		
+		if(isset($row['twitchId'])) {
+			$object->setTwitchId($row['twitchId']);
+		}
+		
 		return $object;
 	}
 }

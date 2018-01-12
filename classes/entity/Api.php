@@ -20,6 +20,10 @@ class Api {
 	 * @var string $name The name
 	 */
 	protected $name;
+	/**
+	 * @var string $optional The optional
+	 */
+	protected $optional;
 	
 	/**
 	 * Returns the attribute $id
@@ -54,6 +58,14 @@ class Api {
 	}
 	
 	/**
+	 * Returns the attribute $optional
+	 * @return string|null The attribute's value
+	 */
+	public function getOptional() {
+		return $this->optional;
+	}
+	
+	/**
 	 * Sets the attribute $id to the passed value
 	 * @param integer $id The new value
 	 */
@@ -83,6 +95,14 @@ class Api {
 	 */
 	public function setName($name) {
 		$this->name = $name;
+	}
+	
+	/**
+	 * Sets the attribute $optional to the passed value
+	 * @param string $optional The new value
+	 */
+	public function setOptional($optional) {
+		$this->optional = $optional;
 	}
 	
 }
