@@ -12,7 +12,6 @@ class InstagramWebsiteClient {
 
             $list = array();
             for($i = 0; $i < sizeof($entries); $i++) {
-                echo $i."<br>";
                 $entry = $this->parsePost($creator, $entries[$i]);
                 if($entry) {
                     $list[] = $entry;
@@ -35,8 +34,6 @@ class InstagramWebsiteClient {
         $dao = new PostDAOImpl();
 
         if(! $dao->postExits($creator->getId(), $entry['code'], "Instagram")) {
-            echo "post does not exist";
-
             $post = new Post();
             $post->setReleased(date("Y-m-d H:i:s", $entry['date']));
             $post->setOriginalId($entry['code']);
@@ -53,7 +50,6 @@ class InstagramWebsiteClient {
                 return null;
             }
         } else {
-            echo "post does exist";
             return null;
         }
     }

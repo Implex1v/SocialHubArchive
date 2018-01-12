@@ -5,7 +5,7 @@ require __DIR__ . "/classes/ApplicationController.php";
 
 if($_GET['action']) {
     if($_GET['action'] == "fetch") {
-        /* TODO: move to controller
+        //TODO: move to controller
         require __DIR__ . "/classes/rest/TwitterRESTClient.php";
         require __DIR__ . "/classes/builder/TwitterPostBuilder.php";
 
@@ -29,7 +29,6 @@ if($_GET['action']) {
         $builder = new YoutubePostBuilder();
         $posts = $builder->buildYoutubePosts($creator, $result);
 
-        */
 
         require __DIR__ . "/classes/rest/InstagramWebsiteClient.php";
         $cDao = new CreatorDAOImpl();

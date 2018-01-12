@@ -60,7 +60,6 @@ abstract class PostCustomDAOImpl extends PostBuilder implements PostCustomDAO {
             throw new RuntimeException("count is null");
         }
 
-        echo $time;
         $statement = $this->pdo->prepare("SELECT * FROM Post WHERE creatorId = 1 AND released < :zeit ORDER BY released DESC LIMIT 12;");
         $statement->bindValue(":zeit", $time, PDO::PARAM_STR);
 

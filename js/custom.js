@@ -6,7 +6,7 @@ $(window).scroll(function() {
             success: function (result) {
                 var time = $($.parseHTML(result)).filter("#latest");
                 $("#lastPostTime").text(time.text());
-                $("#feed").append(result).fadeIn(500);
+                $("#feed").append(result).fadeIn(100);
                 $("#latest").remove();
             }
         });
