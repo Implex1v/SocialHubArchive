@@ -36,6 +36,8 @@ if($_GET['action']) {
 
         $client = new InstagramWebsiteClient();
         $posts = $client->getLatestImages($creator);
+    } elseif($_GET['action'] == "getPost" AND $_GET['time']) {
+
     }
 }
 

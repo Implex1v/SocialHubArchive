@@ -26,13 +26,13 @@ abstract class PostCustomDAOImpl extends PostBuilder implements PostCustomDAO {
     /**
      * {@inheritdoc}
      */
-    function readLatestPostsOf($creatorId, $count = 10) {
+    function readLatestPostsOf($creatorId, $count = 12) {
         $data = array(
             ":cid" => $creatorId,
             ":lim" => $count
         );
 
-        $statement = $this->pdo->prepare("SELECT * FROM Post WHERE creatorId = 1 ORDER BY released DESC LIMIT 47");
+        $statement = $this->pdo->prepare("SELECT * FROM Post WHERE creatorId = 1 ORDER BY released DESC LIMIT 12");
         $result = $statement->execute($data);
         if($result) {
             $list = array();

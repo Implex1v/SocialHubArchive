@@ -3,7 +3,7 @@
         <div class="card-content white-text" style="height: 280px">
             <span class="card-title">Instagram - Neues Bild</span>
             <p style="overflow: hidden; text-overflow: ellipsis; height: 44px">{title}</p>
-            <a href="{link}" class="center-align">
+            <a href="{link}">
                 <img src="{content}" style="height: 200px">
             </a>
         </div>
