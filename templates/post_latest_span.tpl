@@ -1,0 +1,1 @@
+<span id='latest' style='display: none'>{time}</span>

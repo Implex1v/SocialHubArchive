@@ -1,4 +1,4 @@
-<div class="col l4 m6 s12" >
+<div class="col l4 m6 s12" style="height: 400px">
     <div class="card blue twitter-card">
         <div class="card-content white-text" style="height: 280px">
             <span class="card-title">Twitter</span>

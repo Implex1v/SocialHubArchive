@@ -1,5 +1,14 @@
 $(window).scroll(function() {
     if($(window).scrollTop() == $(document).height() - $(window).height()) {
-        // ajax call get data from server and append to the div
+        var timestamp = $("#lastPostTime").text();
+        $.get({
+            url: "/api.php?action=getPost&time="+timestamp,
+            success: function (result) {
+                var time = $($.parseHTML(result)).filter("#latest");
+                $("#lastPostTime").text(time.text());
+                $("#feed").append(result).fadeIn(500);
+                $("#latest").remove();
+            }
+        });
     }
 });

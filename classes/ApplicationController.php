@@ -1,6 +1,8 @@
 <?php
 
 require __DIR__ . "/builder/CardBuilder.php";
+require __DIR__ . "/builder/FragmentBuilder.php";
+
 class ApplicationController {
     public function getIndexPosts() {
         $dao = new PostDAOImpl();
@@ -13,9 +15,21 @@ class ApplicationController {
         return array("posts" => $posts, "time" => $time);
     }
 
-    public function readPosts($lastPost, $count) {
+    public function readPosts($timeStamp, $count = 12) {
         $dao = new PostDAOImpl();
+        $time = date("Y-m-d H:i:s", $timeStamp);
+        $p = $dao->readPosts(1, $time, $count);
+        $timeStamp = $this->getTimestamp($p);
 
+        $builder = new CardBuilder();
+        $posts = $builder->buildCards($p);
+
+        return array("posts" => $posts, "time" => $timeStamp);
+    }
+
+    public function getTimeSpan($time) {
+        $builder = new FragmentBuilder();
+        return $builder->buildTimeSpan($time);
     }
 
     private function getTimestamp(array $posts) {

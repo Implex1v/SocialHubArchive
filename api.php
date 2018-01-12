@@ -1,9 +1,10 @@
 <?php
 
 require __DIR__ . "/classes/util/autoload.php";
+require __DIR__ . "/classes/ApplicationController.php";
 
 if($_GET['action']) {
-    if($_GET['action'] = "fetch") {
+    if($_GET['action'] == "fetch") {
         /* TODO: move to controller
         require __DIR__ . "/classes/rest/TwitterRESTClient.php";
         require __DIR__ . "/classes/builder/TwitterPostBuilder.php";
@@ -37,7 +38,14 @@ if($_GET['action']) {
         $client = new InstagramWebsiteClient();
         $posts = $client->getLatestImages($creator);
     } elseif($_GET['action'] == "getPost" AND $_GET['time']) {
+        $time = $_GET['time'];
+        $controller = new ApplicationController();
 
+        $data = $controller->readPosts($time);
+        $posts = $data['posts'];
+        $span = $controller->getTimeSpan($data['time']);
+
+        echo $posts."\n".$span;
     }
 }
 

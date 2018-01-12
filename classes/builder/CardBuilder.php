@@ -1,10 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Implex1v
- * Date: 12.01.18
- * Time: 21:04
- */
+
+if(! class_exists("LayoutEngine")) {
+    require __DIR__ . "/../util/LayoutEngine.php";
+}
 
 class CardBuilder {
     public function buildCards(array $posts) {
