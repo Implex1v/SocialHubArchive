@@ -3,8 +3,8 @@
     <head>
         <title>SocialHub: Gronkh</title>
 
-        <link rel="stylesheet" href="css/materialize.css">
-        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="/css/materialize.css">
+        <link rel="stylesheet" href="/css/custom.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <meta charset="UTF-8">
