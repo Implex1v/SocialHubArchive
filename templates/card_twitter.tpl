@@ -7,7 +7,7 @@
         <div class="card-action">
             <div class="row action-row">
                 <div class="col l6 s12">
-                    <a href="{link}" class="white-text link">Zum Original Post</a>
+                    <a href="{link}" class="white-text link">Link</a>
                 </div>
                 <div class="col l6 s12 right-align">
                     <span class="white-text">{date}</span>

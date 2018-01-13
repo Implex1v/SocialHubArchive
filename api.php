@@ -41,10 +41,14 @@ if($_GET['action']) {
         $controller = new ApplicationController();
 
         $data = $controller->readPosts($time);
-        $posts = $data['posts'];
-        $span = $controller->getTimeSpan($data['time']);
+        if($data AND $data['posts']) {
+            $posts = $data['posts'];
+            $span = $controller->getTimeSpan($data['time']);
+            echo $posts."\n".$span;
+        } else {
+            echo "<div class='col s12 center-align orange'><h3>Leider kein Inhalt mehr vorhanden!</h3></div>";
+        }
 
-        echo $posts."\n".$span;
     }
 }
 

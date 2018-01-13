@@ -12,3 +12,41 @@ $(window).scroll(function() {
         });
     }
 });
+
+function toggleFilter(channel, element) {
+    var name = "filter"+channel;
+
+    if($.cookie(name) !== undefined) {
+        if($.cookie(name) === '1') {
+            $.cookie(name, '0', { expires: 365 });
+            $(element).find("i").addClass("filter-disabled");
+        } else {
+            $.cookie(name, '1', { expires: 365 });
+            $(element).find("i").removeClass("filter-disabled");
+        }
+    } else {
+        $.cookie(name, '1', { expires: 365 });
+        $(element).find("i").removeClass("filter-disabled");
+    }
+}
+
+function initFilterIcons(channel, element) {
+    var name = "filter"+channel;
+
+    if($.cookie(name) !== undefined) {
+        if($.cookie(name) === '1') {
+            $(element).find("i").addClass("filter-disabled");
+        } else {
+            $(element).find("i").removeClass("filter-disabled");
+        }
+    } else {
+        $(element).find("i").removeClass("filter-disabled");
+    }
+}
+
+$(document).ready(function () {
+    initFilterIcons("Youtube", $("#filterToggleYoutube"));
+    initFilterIcons("Twitter", $("#filterToggleTwitter"));
+    initFilterIcons("Twitch", $("#filterToggleTwitch"));
+    initFilterIcons("Instagram", $("#filterToggleInstagram"));
+});

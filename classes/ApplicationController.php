@@ -18,13 +18,17 @@ class ApplicationController {
     public function readPosts($timeStamp, $count = 12) {
         $dao = new PostDAOImpl();
         $time = date("Y-m-d H:i:s", $timeStamp);
-        $p = $dao->readPosts(1, $time, $count);
-        $timeStamp = $this->getTimestamp($p);
+        $postArray = $dao->readPosts(1, $time, $count);
 
-        $builder = new CardBuilder();
-        $posts = $builder->buildCards($p);
+        if($postArray) {
+            $timeStamp = $this->getTimestamp($postArray);
+            $builder = new CardBuilder();
+            $posts = $builder->buildCards($postArray);
 
-        return array("posts" => $posts, "time" => $timeStamp);
+            return array("posts" => $posts, "time" => $timeStamp);
+        } else {
+            return null;
+        }
     }
 
     public function getTimeSpan($time) {
