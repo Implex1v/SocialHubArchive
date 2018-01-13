@@ -19,7 +19,6 @@ if($_GET['action']) {
             $engine = new LayoutEngine(__DIR__ . "/templates/card_no_content.tpl");
             echo $engine->finalize();
         }
-
     }
 }
 

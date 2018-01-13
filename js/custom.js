@@ -20,11 +20,11 @@ function toggleFilter(channel, element) {
         if($.cookie(name) === '1') {
             $.cookie(name, '0', { expires: 365 });
             $(element).find("i").addClass("filter-disabled");
-            $("#feed").load(document.URL + " #feed");
+            $("#content").load(document.URL + " #content");
         } else {
             $.cookie(name, '1', { expires: 365 });
             $(element).find("i").removeClass("filter-disabled");
-            $("#feed").load(document.URL + " #feed");
+            $("#content").load(document.URL + " #content");
         }
     } else {
         $.cookie(name, '1', { expires: 365 });

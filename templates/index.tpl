@@ -12,10 +12,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="content">
             <nav class="orange">
                 <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo center">SocialHub - Gronkh</a>
+                    <a href="#!" class="brand-logo left">SocialHub - Gronkh</a>
                     <ul class="left hide-on-med-and-down">
                         <li>
                             <a href="index.php">Test</a>

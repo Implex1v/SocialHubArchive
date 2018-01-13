@@ -1,1 +1,1 @@
-<div class='col s12 center-align orange'><h3>Leider kein Inhalt vorhanden!</h3></div>
+<div class='col s12 center-align orange z-depth-1'><h3>Leider kein Inhalt vorhanden!</h3></div>
