@@ -20,9 +20,11 @@ function toggleFilter(channel, element) {
         if($.cookie(name) === '1') {
             $.cookie(name, '0', { expires: 365 });
             $(element).find("i").addClass("filter-disabled");
+            $("#feed").load(document.URL + " #feed");
         } else {
             $.cookie(name, '1', { expires: 365 });
             $(element).find("i").removeClass("filter-disabled");
+            $("#feed").load(document.URL + " #feed");
         }
     } else {
         $.cookie(name, '1', { expires: 365 });
@@ -35,11 +37,12 @@ function initFilterIcons(channel, element) {
 
     if($.cookie(name) !== undefined) {
         if($.cookie(name) === '1') {
-            $(element).find("i").addClass("filter-disabled");
-        } else {
             $(element).find("i").removeClass("filter-disabled");
+        } else {
+            $(element).find("i").addClass("filter-disabled");
         }
     } else {
+        $.cookie(name, '1', { expires: 365 });
         $(element).find("i").removeClass("filter-disabled");
     }
 }

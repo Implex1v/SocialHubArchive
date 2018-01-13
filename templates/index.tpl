@@ -13,8 +13,8 @@
     </head>
     <body>
         <div class="container">
-            <nav>
-                <div class="nav-wrapper orange">
+            <nav class="orange">
+                <div class="nav-wrapper">
                     <a href="#!" class="brand-logo center">SocialHub - Gronkh</a>
                     <ul class="left hide-on-med-and-down">
                         <li>

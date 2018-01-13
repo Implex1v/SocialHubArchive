@@ -6,13 +6,17 @@ require __DIR__ . "/builder/FragmentBuilder.php";
 class ApplicationController {
     public function getIndexPosts() {
         $dao = new PostDAOImpl();
-        $p = $dao->readLatestPostsOf(1);
-        $time = $this->getTimestamp($p);
+        $postArray = $dao->readLatestPostsOf(1);
+        if($postArray) {
+            $time = $this->getTimestamp($postArray);
 
-        $builder = new CardBuilder();
-        $posts = $builder->buildCards($p);
+            $builder = new CardBuilder();
+            $posts = $builder->buildCards($postArray);
 
-        return array("posts" => $posts, "time" => $time);
+            return array("posts" => $posts, "time" => $time);
+        } else {
+            return null;
+        }
     }
 
     public function readPosts($timeStamp, $count = 12) {
