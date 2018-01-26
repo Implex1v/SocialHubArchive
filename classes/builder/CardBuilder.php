@@ -38,7 +38,7 @@ class CardBuilder {
     private function buildYoutubeCard(Post $post) {
         $engine = new LayoutEngine(__DIR__ . "/../../templates/card_youtube.tpl");
         $engine->put("link", $post->getLink());
-        $engine->put("date", $post->getReleased());
+        $engine->put("date", $this->convertDate($post->getReleased()));
         $engine->put("title", $post->getContent());
         $engine->put("content", $post->getComment());
 
@@ -48,7 +48,7 @@ class CardBuilder {
     private function buildTwitterCard(Post $post) {
         $engine = new LayoutEngine(__DIR__ . "/../../templates/card_twitter.tpl");
         $engine->put("link", $post->getLink());
-        $engine->put("date", $post->getReleased());
+        $engine->put("date", $this->convertDate($post->getReleased()));
         $engine->put("content", $post->getContent());
 
         return $engine->finalize();
@@ -57,10 +57,14 @@ class CardBuilder {
     private function buildInstagramCard(Post $post) {
         $engine = new LayoutEngine(__DIR__ . "/../../templates/card_instagram.tpl");
         $engine->put("link", $post->getLink());
-        $engine->put("date", $post->getReleased());
+        $engine->put("date", $this->convertDate($post->getReleased()));
         $engine->put("content", $post->getContent());
         $engine->put("title", $post->getComment());
 
         return $engine->finalize();
+    }
+
+    private function convertDate($date) {
+        return date("d.m.Y H:i", strtotime($date));
     }
 }

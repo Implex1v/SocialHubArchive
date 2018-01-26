@@ -5,7 +5,8 @@ require __DIR__ . "/classes/ApplicationController.php";
 
 if($_GET['action']) {
     if($_GET['action'] == "fetch") {
-        // TODO refresh
+        $controller = new ApplicationController();
+        $controller->fetchAll();
     } elseif($_GET['action'] == "getPost" AND $_GET['time']) {
         $time = $_GET['time'];
         $controller = new ApplicationController();

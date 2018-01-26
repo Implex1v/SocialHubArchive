@@ -15,12 +15,7 @@
         <div class="container" id="content">
             <nav class="orange">
                 <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo left">SocialHub - Gronkh</a>
-                    <ul class="left hide-on-med-and-down">
-                        <li>
-                            <a href="index.php">Test</a>
-                        </li>
-                    </ul>
+                    <a href="#!" class="brand-logo left" style="margin-left: 20px">SocialHub - Gronkh</a>
                 </div>
             </nav>
             <div class="row" style="padding-top: 20px;">
@@ -51,6 +46,9 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+        <div class="container">
             <div class="row" id="feed">
                 {posts}
             </div>

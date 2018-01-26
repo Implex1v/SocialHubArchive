@@ -4,7 +4,7 @@
             <span class="card-title">Youtube - Neues Video</span>
             <p>{title}</p>
             <a href="{link}">
-                <img src="{content}">
+                <img src="{content}" class="col l12">
             </a>
         </div>
         <div class="card-action">

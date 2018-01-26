@@ -4,6 +4,30 @@ require __DIR__ . "/builder/CardBuilder.php";
 require __DIR__ . "/builder/FragmentBuilder.php";
 
 class ApplicationController {
+    public function fetchAll() {
+        require __DIR__ . "/rest/TwitterRESTClient.php";
+        require __DIR__ . "/builder/TwitterPostBuilder.php";
+        require __DIR__ . "/rest/YouTubeRESTClient.php";
+        require __DIR__ . "/builder/YoutubePostBuilder.php";
+        require __DIR__ . "/rest/InstagramWebsiteClient.php";
+
+        $cDao = new CreatorDAOImpl();
+        $creator = $cDao->readByName("Gronkh");
+
+        $twClient = new TwitterRESTClient();
+        $result = $twClient->readFeed($creator->getTwitterId(), 10);
+        $builder = new TwitterPostBuilder();
+        $builder->buildTwitterPosts($creator, $result);
+
+        $ytClient = new YouTubeRESTClient();
+        $result = $ytClient->getLatestUploads("UUYJ61XIK64sp6ZFFS8sctxw");
+        $ytBuilder = new YoutubePostBuilder();
+        $ytBuilder->buildYoutubePosts($creator, $result);
+
+        $client = new InstagramWebsiteClient();
+        $client->getLatestImages($creator);
+    }
+
     public function getIndexPosts() {
         $dao = new PostDAOImpl();
         $postArray = $dao->readLatestPostsOf(1);
