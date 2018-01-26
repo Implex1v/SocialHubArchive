@@ -34,7 +34,6 @@ abstract class PostCustomDAOImpl extends PostBuilder implements PostCustomDAO {
 
         $filer = $this->buildFilterString();
         $sql = "SELECT * FROM Post WHERE creatorId = 1 ".$filer." ORDER BY released DESC LIMIT 12;";
-        file_put_contents("sql.log", $filer."\n", FILE_APPEND);
         $statement = $this->pdo->prepare($sql);
         $result = $statement->execute($data);
         if($result) {
@@ -68,7 +67,6 @@ abstract class PostCustomDAOImpl extends PostBuilder implements PostCustomDAO {
 
         $filer = $this->buildFilterString();
         $sql = "SELECT * FROM Post WHERE creatorId = 1 AND released < :zeit ".$filer." ORDER BY released DESC LIMIT 12;";
-        file_put_contents("sql.log", $filer."\n", FILE_APPEND);
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(":zeit", $time, PDO::PARAM_STR);
 
