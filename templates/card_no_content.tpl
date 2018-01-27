@@ -1,0 +1,1 @@
+<div class='col s12 center-align blue-grey z-depth-1'><h3>Leider kein Inhalt vorhanden!</h3></div>

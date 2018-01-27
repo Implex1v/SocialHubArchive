@@ -5,3 +5,27 @@
 .action-row {
     margin-bottom: 0px;
 }
+
+.filter-icon:before {
+    font-size: 50px;
+}
+
+.filter-button:link, .fa-twitch {
+    color: #673ab7;
+}
+
+.filter-button:link, .fa-twitter {
+    color: #2196f3;
+}
+
+.filter-button:link, .fa-instagram {
+    color: #ffc107;
+}
+
+.filter-button:link, .fa-youtube {
+    color: #f44336;
+}
+
+.filter-disabled:before {
+    color: black;
+}

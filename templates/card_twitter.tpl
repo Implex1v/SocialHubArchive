@@ -1,4 +1,4 @@
-<div class="col l4 m6 s12" >
+<div class="col l4 m6 s12" style="height: 400px">
     <div class="card blue twitter-card">
         <div class="card-content white-text" style="height: 280px">
             <span class="card-title">Twitter</span>
@@ -7,7 +7,7 @@
         <div class="card-action">
             <div class="row action-row">
                 <div class="col l6 s12">
-                    <a href="{link}" class="white-text link">Zum Original Post</a>
+                    <a href="{link}" class="white-text link">Link</a>
                 </div>
                 <div class="col l6 s12 right-align">
                     <span class="white-text">{date}</span>

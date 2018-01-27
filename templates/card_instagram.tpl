@@ -3,14 +3,14 @@
         <div class="card-content white-text" style="height: 280px">
             <span class="card-title">Instagram - Neues Bild</span>
             <p style="overflow: hidden; text-overflow: ellipsis; height: 44px">{title}</p>
-            <a href="{link}">
-                <img src="{content}" style="height: 200px">
+            <a href="{link}" style="height: 200px">
+                <img src="{content}" class="col l12" alt="Leider kein Bild vorhanden :(">
             </a>
         </div>
         <div class="card-action">
             <div class="row action-row">
                 <div class="col l6 s12">
-                    <a href="{link}" class="white-text link">Zum Original Post</a>
+                    <a href="{link}" class="white-text link">Link</a>
                 </div>
                 <div class="col l6 s12 right-align">
                     <span class="white-text">{date}</span>

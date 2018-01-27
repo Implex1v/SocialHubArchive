@@ -4,13 +4,13 @@
             <span class="card-title">Youtube - Neues Video</span>
             <p>{title}</p>
             <a href="{link}">
-                <img src="{content}">
+                <img src="{content}" class="col l12" alt="Leider kein Bild vorhanden :(">
             </a>
         </div>
         <div class="card-action">
             <div class="row action-row">
                 <div class="col l6 s12">
-                    <a href="{link}" class="white-text link">Zum Original Post</a>
+                    <a href="{link}" class="white-text link">Link</a>
                 </div>
                 <div class="col l6 s12 right-align">
                     <span class="white-text">{date}</span>
