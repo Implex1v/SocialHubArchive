@@ -13,43 +13,39 @@
     </head>
     <body>
         <div class="container" id="content">
-            <nav class="blue-grey">
-                <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo left" style="margin-left: 20px">SocialHub - Gronkh</a>
-                </div>
-            </nav>
-            <div class="row" style="padding-top: 20px;">
-                <div class="col l12">
-                    <div class="col l12 blue-grey z-depth-1" style=" padding: 10px;">
-                        <div class="col l6 offset-l3">
-                            <div class="col l3">
-                                <a href="#" id="filterToggleTwitch" class="filter-button" onclick="toggleFilter('Twitch', this)">
-                                    <i class="fa fa-twitch filter-icon" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="col l3">
-                                <a href="#" id="filterToggleTwitter" class="filter-button" onclick="toggleFilter('Twitter', this)">
-                                    <i class="fa fa-twitter filter-icon" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="col l3">
-                                <a href="#" id="filterToggleInstagram" class="filter-button" onclick="toggleFilter('Instagram', this)">
-                                    <i class="fa fa-instagram filter-icon" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="col l3">
-                                <a href="#" id="filterToggleYoutube" class="filter-button" onclick="toggleFilter('Youtube', this)">
-                                    <i class="fa fa-youtube filter-icon" aria-hidden="true"></i>
-                                </a>
-                            </div>
+            <div class="blue-grey z-depth-1">
+                <div class="row" style="padding: 5px">
+                    <div class="col l6 s12">
+                        <h4><a href="#!" class="white-text" style="margin-left: 10px">SocialHub - Gronkh</a></h4>
+                    </div>
+                    <div class="col l4 offset-l2 s12" style="margin-top: 10px">
+                        <div class="col l3">
+                            <a href="#" id="filterToggleTwitch" class="filter-button" onclick="toggleFilter('Twitch', this)">
+                                <i class="fa fa-twitch filter-icon" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="col l3">
+                            <a href="#" id="filterToggleTwitter" class="filter-button" onclick="toggleFilter('Twitter', this)">
+                                <i class="fa fa-twitter filter-icon" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="col l3">
+                            <a href="#" id="filterToggleInstagram" class="filter-button" onclick="toggleFilter('Instagram', this)">
+                                <i class="fa fa-instagram filter-icon" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="col l3">
+                            <a href="#" id="filterToggleYoutube" class="filter-button" onclick="toggleFilter('Youtube', this)">
+                                <i class="fa fa-youtube filter-icon" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row" id="feed">
-                {posts}
+            <div class="row">
+                <div id="feed">
+                    {posts}
+                </div>
             </div>
         </div>
 
