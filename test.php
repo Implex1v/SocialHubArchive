@@ -10,4 +10,4 @@ require __DIR__ . "/classes/util/autoload.php";
 require __DIR__ . "/classes/ApplicationController.php";
 
 $controller = new ApplicationController();
-$controller->readTwitchId("gronkh");
+$controller->fetchAll();

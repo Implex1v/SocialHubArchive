@@ -1,11 +1,14 @@
 <?php
 
-require __DIR__ . "/RESTClient.php";
-
 /**
  * Class TwitchRESTClient for calling the twitch api
  */
 class TwitchRESTClient {
+    /**
+     * Returns a response containing the latest videos of the given twitch user
+     * @param $twitchId int The id of the twitch user
+     * @return mixed|null The http response or null if an error occurred
+     */
     function getLatestVideos($twitchId) {
         if(!$twitchId) {
             throw new RuntimeException("twitchId is null");
@@ -19,6 +22,8 @@ class TwitchRESTClient {
             $client->setUrl("https://api.twitch.tv/kraken/channels/".$twitchId."/videos");
             $client->addHeaderParam("Accept", "application/vnd.twitchtv.v5+json");
             $client->addHeaderParam("Client-ID", $twitch->getToken());
+            $client->addQueryParam("sort", "time");
+
             return $client->run();
         } else {
             return null;
