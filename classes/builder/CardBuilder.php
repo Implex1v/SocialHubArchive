@@ -27,6 +27,8 @@ class CardBuilder {
                     return $this->buildTwitterCard($post);
                 case "Instagram":
                     return $this->buildInstagramCard($post);
+                case "Twitch":
+                    return $this->buildTwitchCard($post);
                 default:
                     return null;
             }
@@ -60,6 +62,16 @@ class CardBuilder {
         $engine->put("date", $this->convertDate($post->getReleased()));
         $engine->put("content", $post->getContent());
         $engine->put("title", $post->getComment());
+
+        return $engine->finalize();
+    }
+
+    private function buildTwitchCard(Post $post) {
+        $engine = new LayoutEngine(__DIR__ . "/../../templates/card_twitch.tpl");
+        $engine->put("link", $post->getLink());
+        $engine->put("date", $this->convertDate($post->getReleased()));
+        $engine->put("title", $post->getContent());
+        $engine->put("content", $post->getComment());
 
         return $engine->finalize();
     }
