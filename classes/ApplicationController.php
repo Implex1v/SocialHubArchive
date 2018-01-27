@@ -59,6 +59,26 @@ class ApplicationController {
         }
     }
 
+    public function readTwitchId($username) {
+        if(!$username) {
+            throw new RuntimeException("username is null");
+        }
+
+        $creatorDao = new CreatorDAOImpl();
+        $creator = $creatorDao->readByName($username);
+        if($creator) {
+            require __DIR__ . "/rest/TwitchRESTClient.php";
+            require __DIR__ . "/handler/TwitchResponseHandler.php";
+
+            $twitchClient = new TwitchRESTClient();
+            $response = $twitchClient->getIdFromUsername($username);
+            if($response) {
+                $handler = new TwitchResponseHandler();
+                $handler->handleTwitchIdResponse($response, $username);
+            }
+        }
+    }
+
     public function getTimeSpan($time) {
         $builder = new FragmentBuilder();
         return $builder->buildTimeSpan($time);
