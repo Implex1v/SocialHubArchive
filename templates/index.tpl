@@ -13,14 +13,14 @@
     </head>
     <body>
         <div class="container" id="content">
-            <nav class="orange">
+            <nav class="blue-grey">
                 <div class="nav-wrapper">
                     <a href="#!" class="brand-logo left" style="margin-left: 20px">SocialHub - Gronkh</a>
                 </div>
             </nav>
             <div class="row" style="padding-top: 20px;">
                 <div class="col l12">
-                    <div class="col l12 orange z-depth-1" style=" padding: 10px;">
+                    <div class="col l12 blue-grey z-depth-1" style=" padding: 10px;">
                         <div class="col l6 offset-l3">
                             <div class="col l3">
                                 <a href="#" id="filterToggleTwitch" class="filter-button" onclick="toggleFilter('Twitch', this)">
@@ -46,7 +46,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="container">
             <div class="row" id="feed">
