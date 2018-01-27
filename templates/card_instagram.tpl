@@ -1,10 +1,25 @@
-<div class="card amber instagram-card">
-    <div class="card-content white-text">
-        <span class="card-title">Instagram</span>
-        <p>Bla Bla</p>
-    </div>
-    <div class="card-action">
-        <a href="{$link}" class="white-text link">Zum Original Post</a>
-        <span class="white-text right-align" style="float: right">{$date}</span>
+<div class="col l4 m6 s12" style="height: 400px">
+    <div class="card amber youtube-card" >
+        <div class="card-content white-text" style="height: 280px">
+            <div>
+                <span class="card-title">Instagram - Neues Bild</span>
+                <p style="overflow: hidden; text-overflow: ellipsis; height: 44px">{title}</p>
+            </div>
+            <div style="text-align: center">
+                <a href="{link}" style="height: 200px">
+                    <img src="{content}" style="max-height: 200px; width: auto; max-width: 200px" alt="Leider kein Bild vorhanden :(">
+                </a>
+            </div>
+        </div>
+        <div class="card-action">
+            <div class="row action-row">
+                <div class="col l6 s12">
+                    <a href="{link}" class="white-text link">Link</a>
+                </div>
+                <div class="col l6 s12 right-align">
+                    <span class="white-text">{date}</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

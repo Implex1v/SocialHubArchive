@@ -28,6 +28,14 @@ class Post {
 	 * @var string $comment The comment
 	 */
 	protected $comment;
+	/**
+	 * @var string $originalId The originalId
+	 */
+	protected $originalId;
+	/**
+	 * @var string $creatorId The creatorId
+	 */
+	protected $creatorId;
 	
 	/**
 	 * Returns the attribute $id
@@ -78,6 +86,22 @@ class Post {
 	}
 	
 	/**
+	 * Returns the attribute $originalId
+	 * @return string|null The attribute's value
+	 */
+	public function getOriginalId() {
+		return $this->originalId;
+	}
+	
+	/**
+	 * Returns the attribute $creatorId
+	 * @return string|null The attribute's value
+	 */
+	public function getCreatorId() {
+		return $this->creatorId;
+	}
+	
+	/**
 	 * Sets the attribute $id to the passed value
 	 * @param integer $id The new value
 	 */
@@ -123,6 +147,22 @@ class Post {
 	 */
 	public function setComment($comment) {
 		$this->comment = $comment;
+	}
+	
+	/**
+	 * Sets the attribute $originalId to the passed value
+	 * @param string $originalId The new value
+	 */
+	public function setOriginalId($originalId) {
+		$this->originalId = $originalId;
+	}
+	
+	/**
+	 * Sets the attribute $creatorId to the passed value
+	 * @param string $creatorId The new value
+	 */
+	public function setCreatorId($creatorId) {
+		$this->creatorId = $creatorId;
 	}
 	
 }

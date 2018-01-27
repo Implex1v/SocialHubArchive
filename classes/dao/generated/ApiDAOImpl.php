@@ -22,8 +22,9 @@ class ApiDAOImpl extends ApiCustomDAOImpl implements ApiDAO {
 			"token" => $api->getToken(),
 			"url" => $api->getUrl(),
 			"name" => $api->getName(),
+			"optional" => $api->getOptional(),
 		);
-		$statement = $this->pdo->prepare("INSERT INTO Api (token,url,name) VALUES (:token,:url,:name);");
+		$statement = $this->pdo->prepare("INSERT INTO Api (token,url,name,optional) VALUES (:token,:url,:name,:optional);");
 		$statement->execute($data);
 		
 		if($statement AND $statement->rowCount() > 0) {
@@ -72,9 +73,9 @@ class ApiDAOImpl extends ApiCustomDAOImpl implements ApiDAO {
 	 */
 	function update(Api $object) {
 		if($object->getId()) {
-			$statement = $this->pdo->prepare("UPDATE Api SET token = :token, url = :url, name = :name WHERE id = :id;");
+			$statement = $this->pdo->prepare("UPDATE Api SET token = :token, url = :url, name = :name, optional = :optional WHERE id = :id;");
 			$data = array(
-				"id" => $object->getId(), "token" => $object->getToken(), "url" => $object->getUrl(), "name" => $object->getName(),
+				"id" => $object->getId(), "token" => $object->getToken(), "url" => $object->getUrl(), "name" => $object->getName(), "optional" => $object->getOptional(),
 			);
 			$statement->execute($data);
 			
